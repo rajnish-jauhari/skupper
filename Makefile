@@ -1,9 +1,9 @@
 VERSION := $(shell git describe --tags --dirty=-modified --always)
-SERVICE_CONTROLLER_IMAGE := quay.io/skupper/service-controller
-CONTROLLER_PODMAN_IMAGE := quay.io/skupper/controller-podman
-SITE_CONTROLLER_IMAGE := quay.io/skupper/site-controller
-CONFIG_SYNC_IMAGE := quay.io/skupper/config-sync
-FLOW_COLLECTOR_IMAGE := quay.io/skupper/flow-collector
+SERVICE_CONTROLLER_IMAGE := brew.registry.redhat.io/rh-osbs/service-interconnect-service-controller-rhel9:1.8.2-2
+CONTROLLER_PODMAN_IMAGE := brew.registry.redhat.io/rh-osbs/service-interconnect-controller-podman-rhel9:1.8.2-2
+SITE_CONTROLLER_IMAGE := brew.registry.redhat.io/rh-osbs/service-interconnect-site-controller-rhel9:1.8.2-2
+CONFIG_SYNC_IMAGE := brew.registry.redhat.io/rh-osbs/service-interconnect-config-sync-rhel9:1.8.2-2
+FLOW_COLLECTOR_IMAGE := brew.registry.redhat.io/rh-osbs/service-interconnect-flow-collector-rhel9:1.8.2-2
 TEST_IMAGE := quay.io/skupper/skupper-tests
 TEST_BINARIES_FOLDER := ${PWD}/test/integration/bin
 DOCKER := docker
@@ -88,6 +88,7 @@ force-generate-client:
 
 client-mock-test:
 	go test -v -count=1 ./client
+	
 
 client-cluster-test:
 	go test -v -count=1 ./client -use-cluster
