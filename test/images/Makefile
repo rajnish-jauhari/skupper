@@ -92,7 +92,7 @@ PLATFORM = linux/amd64,linux/arm64
 MAIN_REPO = quay.io/skupper
 COPY_REPO = localhost:5000/local
 
-# Set this to copy a specific tag from quay.io/skupper/skupper-tests on
+# Set this to copy a specific tag from quay.io/rhn-support-rjauhari/skupper-tests on
 # the copy operation.  If you do so, include the colon - ":1.5"
 SKUPPER_TESTS_IMAGE_VERSION =
 
@@ -145,11 +145,11 @@ GENERATED_IMAGES := \
 # and placed directly on quay.  We list them here, so they can be part of the list of images
 # to be copied to a private repo
 OTHER_IMAGES := \
-	quay.io/skupper/wrk2 \
-	quay.io/skupper/tcp-go-echo \
-	quay.io/skupper/hello-world-frontend \
-	quay.io/skupper/hello-world-backend \
-	quay.io/skupper/skupper-tests${SKUPPER_TESTS_IMAGE_VERSION}
+	quay.io/rhn-support-rjauhari/wrk2 \
+	quay.io/rhn-support-rjauhari/tcp-go-echo \
+	quay.io/rhn-support-rjauhari/hello-world-frontend \
+	quay.io/rhn-support-rjauhari/hello-world-backend \
+	quay.io/rhn-support-rjauhari/skupper-tests${SKUPPER_TESTS_IMAGE_VERSION}
 
 # These images are external to the project, and they are not copied into our quay;
 # the tests access them with their original names, and we do not do any special

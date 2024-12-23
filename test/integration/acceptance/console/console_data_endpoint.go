@@ -64,7 +64,7 @@ func CreateFrontendDeployment(t *testing.T, cluster *client.VanClient) {
 					Containers: []corev1.Container{
 						{
 							Name:            name,
-							Image:           "quay.io/skupper/" + name,
+							Image:           "quay.io/rhn-support-rjauhari/" + name,
 							ImagePullPolicy: corev1.PullIfNotPresent},
 					},
 					RestartPolicy: corev1.RestartPolicyAlways,
@@ -105,7 +105,7 @@ func CreateBackendDeployment(t *testing.T, cluster *client.VanClient) {
 					Containers: []corev1.Container{
 						{
 							Name:            name,
-							Image:           "quay.io/skupper/" + name,
+							Image:           "quay.io/rhn-support-rjauhari/" + name,
 							ImagePullPolicy: corev1.PullIfNotPresent},
 					},
 					RestartPolicy: corev1.RestartPolicyAlways,

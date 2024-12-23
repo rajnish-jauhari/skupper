@@ -487,15 +487,15 @@ jobs:
           name: persisting images to workspace
           command: |
             mkdir /tmp/images
-            docker tag quay.io/skupper/service-controller 0.0.0.0:5000/service-controller
+            docker tag quay.io/rhn-support-rjauhari/service-controller 0.0.0.0:5000/service-controller
             docker save 0.0.0.0:5000/service-controller | gzip > /tmp/images/service-controller.gz
-            docker tag quay.io/skupper/controller-podman 0.0.0.0:5000/controller-podman
+            docker tag quay.io/rhn-support-rjauhari/controller-podman 0.0.0.0:5000/controller-podman
             docker save 0.0.0.0:5000/controller-podman | gzip > /tmp/images/controller-podman.gz
-            docker tag quay.io/skupper/config-sync 0.0.0.0:5000/config-sync
+            docker tag quay.io/rhn-support-rjauhari/config-sync 0.0.0.0:5000/config-sync
             docker save 0.0.0.0:5000/config-sync | gzip > /tmp/images/config-sync.gz
-            docker tag quay.io/skupper/flow-collector 0.0.0.0:5000/flow-collector
+            docker tag quay.io/rhn-support-rjauhari/flow-collector 0.0.0.0:5000/flow-collector
             docker save 0.0.0.0:5000/flow-collector | gzip > /tmp/images/flow-collector.gz
-            docker tag quay.io/skupper/skupper-tests 0.0.0.0:5000/skupper-tests
+            docker tag quay.io/rhn-support-rjauhari/skupper-tests 0.0.0.0:5000/skupper-tests
             docker save 0.0.0.0:5000/skupper-tests | gzip > /tmp/images/test-image.gz
       - persist_to_workspace:
           root: /tmp
@@ -657,12 +657,12 @@ jobs:
       - run:
           name:
           command: |
-            echo 'export SERVICE_CONTROLLER_IMAGE=quay.io/skupper/service-controller:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export CONTROLLER_PODMAN_IMAGE=quay.io/skupper/controller-podman:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export SITE_CONTROLLER_IMAGE=quay.io/skupper/site-controller:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export CONFIG_SYNC_IMAGE=quay.io/skupper/config-sync:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export FLOW_COLLECTOR_IMAGE=quay.io/skupper/flow-collector:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export TEST_IMAGE=quay.io/skupper/skupper-tests:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export SERVICE_CONTROLLER_IMAGE=quay.io/rhn-support-rjauhari/service-controller:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export CONTROLLER_PODMAN_IMAGE=quay.io/rhn-support-rjauhari/controller-podman:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export SITE_CONTROLLER_IMAGE=quay.io/rhn-support-rjauhari/site-controller:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export CONFIG_SYNC_IMAGE=quay.io/rhn-support-rjauhari/config-sync:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export FLOW_COLLECTOR_IMAGE=quay.io/rhn-support-rjauhari/flow-collector:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export TEST_IMAGE=quay.io/rhn-support-rjauhari/skupper-tests:${CIRCLE_TAG}' >> $BASH_ENV
             source $BASH_ENV
             docker buildx create --use --name skupper-buildx --bootstrap
             make -e docker-build
@@ -679,12 +679,12 @@ jobs:
       - run:
           name: "Publishing main images"
           command: |
-            echo 'export SERVICE_CONTROLLER_IMAGE=quay.io/skupper/service-controller:main' >> $BASH_ENV
-            echo 'export CONTROLLER_PODMAN_IMAGE=quay.io/skupper/controller-podman:main' >> $BASH_ENV
-            echo 'export SITE_CONTROLLER_IMAGE=quay.io/skupper/site-controller:main' >> $BASH_ENV
-            echo 'export CONFIG_SYNC_IMAGE=quay.io/skupper/config-sync:main' >> $BASH_ENV
-            echo 'export FLOW_COLLECTOR_IMAGE=quay.io/skupper/flow-collector:main' >> $BASH_ENV
-            echo 'export TEST_IMAGE=quay.io/skupper/skupper-tests:main' >> $BASH_ENV
+            echo 'export SERVICE_CONTROLLER_IMAGE=quay.io/rhn-support-rjauhari/service-controller:main' >> $BASH_ENV
+            echo 'export CONTROLLER_PODMAN_IMAGE=quay.io/rhn-support-rjauhari/controller-podman:main' >> $BASH_ENV
+            echo 'export SITE_CONTROLLER_IMAGE=quay.io/rhn-support-rjauhari/site-controller:main' >> $BASH_ENV
+            echo 'export CONFIG_SYNC_IMAGE=quay.io/rhn-support-rjauhari/config-sync:main' >> $BASH_ENV
+            echo 'export FLOW_COLLECTOR_IMAGE=quay.io/rhn-support-rjauhari/flow-collector:main' >> $BASH_ENV
+            echo 'export TEST_IMAGE=quay.io/rhn-support-rjauhari/skupper-tests:main' >> $BASH_ENV
             source $BASH_ENV
             docker buildx create --use --name skupper-buildx --bootstrap
             make -e docker-build

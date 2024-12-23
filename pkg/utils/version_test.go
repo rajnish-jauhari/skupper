@@ -177,11 +177,11 @@ func TestGetVersionFromImageTag(t *testing.T) {
 		imageTag string
 		expected string
 	}{
-		{"quay.io/skupper/config-sync:1.4.4 (sha256:3b7e81fc45bd)", "1.4.4"},
-		{"quay.io/skupper/config-sync:1.4.4", "1.4.4"},
-		{"quay.io/skupper/config-sync (sha256:3b7e81fc45bd)", ""},
+		{"quay.io/rhn-support-rjauhari/config-sync:1.4.4 (sha256:3b7e81fc45bd)", "1.4.4"},
+		{"quay.io/rhn-support-rjauhari/config-sync:1.4.4", "1.4.4"},
+		{"quay.io/rhn-support-rjauhari/config-sync (sha256:3b7e81fc45bd)", ""},
 		{"", ""},
-		{"quay.io/skupper/config-sync:1.4.4-prerelease", "1.4.4-prerelease"},
+		{"quay.io/rhn-support-rjauhari/config-sync:1.4.4-prerelease", "1.4.4-prerelease"},
 		{"1.5.1", ""},
 	}
 	for _, test := range tests {

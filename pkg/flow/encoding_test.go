@@ -36,7 +36,7 @@ func TestRecordDecoding(t *testing.T) {
 				TypeOfRecord: uint32(Router),
 				Name:         "skupper-router",
 				Namespace:    "van-namespace",
-				ImageName:    "quay.io/skupper/skupper-router",
+				ImageName:    "quay.io/rhn-support-rjauhari/skupper-router",
 				ImageVersion: "main",
 				HostName:     "172.56.92.10",
 				BuildVersion: "2.0.2",
@@ -108,7 +108,7 @@ func TestRecordDecoding(t *testing.T) {
 			fields: map[int]interface{}{
 				TypeOfRecord: uint32(Process),
 				Name:         "tcp-go-echo",
-				ImageName:    "quay.io/skupper/tcp-go-echo",
+				ImageName:    "quay.io/rhn-support-rjauhari/tcp-go-echo",
 				SourceHost:   "172.17.53.67",
 				Group:        "tcp-go-echo",
 				HostName:     "10.17.0.4",
@@ -298,7 +298,7 @@ func TestRecordEncoding(t *testing.T) {
 			fields: map[int]interface{}{
 				TypeOfRecord: uint32(Process),
 				Name:         "tcp-go-echo",
-				ImageName:    "quay.io/skupper/tcp-go-echo",
+				ImageName:    "quay.io/rhn-support-rjauhari/tcp-go-echo",
 				SourceHost:   "172.17.53.67",
 				Group:        "tcp-go-echo",
 				HostName:     "10.17.0.4",

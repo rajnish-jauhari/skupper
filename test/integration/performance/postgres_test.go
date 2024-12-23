@@ -192,7 +192,7 @@ func getPostgresClientInfo(settings *postgresSettings) *common.ClientInfo {
 
 func getPostgresJobs(settings *postgresSettings) []common.JobInfo {
 	var jobs []common.JobInfo
-	image := "quay.io/skupper/postgres"
+	image := "quay.io/rhn-support-rjauhari/postgres"
 	for _, clients := range settings.clients {
 		jobName := fmt.Sprintf("pgbench-clients-%d", clients)
 		labels := map[string]string{"job": jobName}
