@@ -1,0 +1,47 @@
+name: Build and Push Multi-Arch Image
+on: [push]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Quay
+        run: |
+          echo "${{ secrets.QUAY_TOKEN }}" | docker login quay.io -u "${{ secrets.QUAY_USER }}" --password-stdin
+
+      - name: Build and Push Multi-Arch Image
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/s390x \
+            -t quay.io/rhn-support-rjauhari/skupper-tests:latest \
+            --push . && 
+
+           docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/s390x \
+            -t quay.io/rhn-support-rjauhari/hey:latest \
+            --push -f test/images/Containerfile.hey &&
+
+           docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/s390x \
+            -t quay.io/rhn-support-rjauhari/iperf3:latest \
+            --push -f test/images/Containerfile.iperf3 && 
+
+           docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/s390x \
+            -t quay.io/rhn-support-rjauhari/nghttp2:latest \
+            --push -f test/images/test/images/Containerfile.nghttp2 &&  
+
+           docker buildx build \
+            --platform linux/amd64,linux/arm64,linux/s390x \
+            -t quay.io/rhn-support-rjauhari/wrk:latest \
+            --push -f test/images/test/images/Containerfile.wrk 
+
