@@ -4,7 +4,7 @@ CONTROLLER_PODMAN_IMAGE := quay.io/skupper/controller-podman
 SITE_CONTROLLER_IMAGE := quay.io/skupper/site-controller
 CONFIG_SYNC_IMAGE := quay.io/skupper/config-sync
 FLOW_COLLECTOR_IMAGE := quay.io/skupper/flow-collector
-TEST_IMAGE := quay.io/rhn-support-rjauhari/skupper-tests
+TEST_IMAGE := quay.io/skupper/skupper-tests
 TEST_BINARIES_FOLDER := ${PWD}/test/integration/bin
 DOCKER := docker
 LDFLAGS := -X github.com/skupperproject/skupper/pkg/version.Version=${VERSION}

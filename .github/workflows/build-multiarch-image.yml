@@ -16,22 +16,25 @@ jobs:
       - name: Set up Go modules
         run: |
           cd ~
-          mkdir test
-          cd test
+          cd skupper
+          skupper_path=$(pwd)
+          mkdir build-swagger
+          cd build-swagger
           go mod init test
+          export GOBIN=$skupper_path
 
       - name: Install Swagger
         run: |
           go get github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
           go install github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
 
-      - name: Find Swagger Path and Copy to skupper folder
-        run: |
-          swagger_path=$(find ~/. -name swagger)
-          skupper_path=$(find ~/. -type d -name skupper)
-          echo "Swagger path: $swagger_path"
-          echo "Skupper path: $skupper_path"
-          cp -r /home/runner/./go/bin/swagger /home/runner/./work/_PipelineMapping/rajnish-jauhari/skupper
+      # - name: Find Swagger Path and Copy to skupper folder
+      #   run: |
+      #     swagger_path=$(find ~/. -name swagger)
+      #     skupper_path=$(find ~/. -type d -name skupper)
+      #     echo "Swagger path: $swagger_path"
+      #     echo "Skupper path: $skupper_path"
+      #     cp -r /home/runner/./go/bin/swagger /home/runner/./work/_PipelineMapping/rajnish-jauhari/skupper
 
         
       # - name: Copy Swagger to Skupper Directory
