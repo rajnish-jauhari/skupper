@@ -31,11 +31,12 @@ jobs:
           skupper_path=$(find ~/. -type d -name skupper)
           echo "Swagger path: $swagger_path"
           echo "Skupper path: $skupper_path"
+          cp -r $swagger_path $skupper_path
 
         
-      - name: Copy Swagger to Skupper Directory
-        run: |
-          cp -r $swagger_path $skupper_path
+      # - name: Copy Swagger to Skupper Directory
+      #   run: |
+      #     cp -r $swagger_path $skupper_path
           
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
