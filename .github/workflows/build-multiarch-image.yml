@@ -20,13 +20,17 @@ jobs:
           cd build-swagger
           go mod init test
           export GOBIN=$skupper_path
-
-      - name: Install Swagger
-        run: |
           go get github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
           go install github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
           cd skupper_path
           make all
+
+      # - name: Install Swagger
+      #   run: |
+      #     go get github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
+      #     go install github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
+      #     cd skupper_path
+      #     make all
 
       # - name: Find Swagger Path and Copy to skupper folder
       #   run: |
