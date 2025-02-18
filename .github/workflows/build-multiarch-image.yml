@@ -28,20 +28,20 @@ jobs:
            docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
             -t quay.io/rhn-support-rjauhari/hey:latest \
-            --push -f test/images/Containerfile.hey &&
+            --push -f test/images/Containerfile.hey . &&
 
            docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
             -t quay.io/rhn-support-rjauhari/iperf3:latest \
-            --push -f test/images/Containerfile.iperf3 && 
+            --push -f test/images/Containerfile.iperf3 . && 
 
            docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
             -t quay.io/rhn-support-rjauhari/nghttp2:latest \
-            --push -f test/images/test/images/Containerfile.nghttp2 &&  
+            --push -f test/images/test/images/Containerfile.nghttp2 . &&  
 
            docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
             -t quay.io/rhn-support-rjauhari/wrk:latest \
-            --push -f test/images/test/images/Containerfile.wrk 
+            --push -f test/images/test/images/Containerfile.wrk . 
 
