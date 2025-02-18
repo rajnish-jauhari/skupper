@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
+        run:
+          skupper_path=$(pwd)
+          echo $skupper_path
 
       - name: Install Go
         uses: actions/setup-go@v2
@@ -16,6 +19,7 @@ jobs:
       - name: Set up Go modules
         run: |
           skupper_path=$(pwd)
+          echo $skupper_path
           mkdir build-swagger
           cd build-swagger
           go mod init test
