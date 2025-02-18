@@ -25,15 +25,19 @@ jobs:
           go get github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
           go install github.com/go-swagger/go-swagger/cmd/swagger@v0.30.0
 
-      - name: Find Swagger Path
+      - name: Find Swagger and Skupper Path
         run: |
-          swagger_path=$(find ~/. -name swagger)
+          # The find command will be looking inside the home directory (~), which should cover the global paths
+          swagger_path=$(find /root/ -name swagger 2>/dev/null)
+          skupper_path=$(find /root/ -name skupper 2>/dev/null)
           echo "Swagger path: $swagger_path"
-        
+          echo "Skupper path: $skupper_path"
+
       - name: Copy Swagger to Skupper Directory
         run: |
-          cp -r /home/runner/./go/bin/swagger /home/runner/./skupper
-
+          # Ensure we are copying the swagger binary to the correct Skupper path
+          cp -r $swagger_path /root/skupper/
+          
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
