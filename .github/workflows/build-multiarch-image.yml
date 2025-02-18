@@ -32,8 +32,8 @@ jobs:
         
       - name: Copy Swagger to Skupper Directory
         run: |
-          cp -r /root/go/bin/swagger /root/skupper
-          
+          cp -r /home/runner/./go/bin/swagger /home/runner/./skupper
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
