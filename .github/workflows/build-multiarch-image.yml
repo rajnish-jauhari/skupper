@@ -23,7 +23,7 @@ jobs:
           docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
             -t quay.io/rhn-support-rjauhari/skupper-tests:latest \
-            --push -f Dockerfile.ci-test && 
+            --push -f Dockerfile.ci-test . && 
 
            docker buildx build \
             --platform linux/amd64,linux/arm64,linux/s390x \
