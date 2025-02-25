@@ -2,7 +2,7 @@
 
 set -Ceu
 
-IMAGE="quay.io/skupper/cli:v2-dev"
+IMAGE="quay.io/rhn-support-rjauhari/cli:v2-dev"
 export INPUT_PATH=""
 export NAMESPACE=""
 export FORCE_FLAG=""
