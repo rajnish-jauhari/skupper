@@ -145,7 +145,7 @@ var nghttp2Dep = &appsv1.Deployment{
 				Containers: []apiv1.Container{
 					{
 						Name:            "nghttp2",
-						Image:           "quay.io/skupper/nghttp2",
+						Image:           "quay.io/rhn-support-rjauhari/nghttp2",
 						ImagePullPolicy: apiv1.PullIfNotPresent,
 						Ports: []apiv1.ContainerPort{
 							{
@@ -207,7 +207,7 @@ var nghttp2TlsDep = &appsv1.Deployment{
 				Containers: []apiv1.Container{
 					{
 						Name:            "nghttp2tls",
-						Image:           "quay.io/skupper/nghttp2",
+						Image:           "quay.io/rhn-support-rjauhari/nghttp2",
 						ImagePullPolicy: apiv1.PullIfNotPresent,
 						Ports: []apiv1.ContainerPort{
 							{
@@ -269,7 +269,7 @@ var nghttp2TcpTlsDep = &appsv1.Deployment{
 				Containers: []apiv1.Container{
 					{
 						Name:            "nghttp2tcptls",
-						Image:           "quay.io/skupper/nghttp2",
+						Image:           "quay.io/rhn-support-rjauhari/nghttp2",
 						ImagePullPolicy: apiv1.PullIfNotPresent,
 						Ports: []apiv1.ContainerPort{
 							{
@@ -392,7 +392,7 @@ var nghttp2TlsDepWithCertFiles = &appsv1.Deployment{
 				Containers: []apiv1.Container{
 					{
 						Name:            "nghttp2tls",
-						Image:           "quay.io/skupper/nghttp2",
+						Image:           "quay.io/rhn-support-rjauhari/nghttp2",
 						ImagePullPolicy: apiv1.PullIfNotPresent,
 						Ports: []apiv1.ContainerPort{
 							{
@@ -464,7 +464,7 @@ var nghttp2tcpTlsDepWithCertFiles = &appsv1.Deployment{
 				Containers: []apiv1.Container{
 					{
 						Name:            "nghttp2tcptls",
-						Image:           "quay.io/skupper/nghttp2",
+						Image:           "quay.io/rhn-support-rjauhari/nghttp2",
 						ImagePullPolicy: apiv1.PullIfNotPresent,
 						Ports: []apiv1.ContainerPort{
 							{
@@ -611,7 +611,7 @@ var h2loadJob = &batchv1.Job{
 				Containers: []apiv1.Container{
 					{
 						Name:  "h2load",
-						Image: "quay.io/skupper/nghttp2",
+						Image: "quay.io/rhn-support-rjauhari/nghttp2",
 						// Command: []string{"h2load", "-n10", "-c10", "-m10", "http://nghttp2:8443"},
 						Command: []string{"h2load", "-n1000", "-c1", "-m1", "http://nghttp2:8443"},
 						Env: []apiv1.EnvVar{
@@ -642,7 +642,7 @@ var h1HeyBaseJob = &batchv1.Job{
 				Containers: []apiv1.Container{
 					{
 						Name:            "h1heybase",
-						Image:           "quay.io/skupper/hey",
+						Image:           "quay.io/rhn-support-rjauhari/hey",
 						Command:         []string{"/app/hey"},
 						ImagePullPolicy: apiv1.PullAlways,
 					},

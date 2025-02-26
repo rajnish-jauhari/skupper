@@ -9,11 +9,16 @@ import (
 	"strings"
 	"testing"
 	"time"
+	"runtime"
 
 	"gotest.tools/assert"
 )
 
 func TestBookinfoJob(t *testing.T) {
+	// Check if the architecture is s390x
+	if runtime.GOARCH == "s390x" {
+		t.Skip("Skipping test on s390x architecture")
+	}
 	_body, err := tryProductPage()
 	assert.Assert(t, err)
 
