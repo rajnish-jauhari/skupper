@@ -313,9 +313,9 @@ func getHttpClientInfo(settings *httpSettings, serviceName string) *common.Clien
 
 func getHttpJobs(settings *httpSettings, serviceName string) []common.JobInfo {
 	var jobs []common.JobInfo
-	imageWrk := "quay.io/skupper/wrk"
-	imageWrk2 := "quay.io/skupper/wrk2"
-	imageHey := "quay.io/skupper/hey"
+	imageWrk := "quay.io/rhn-support-rjauhari/wrk"
+	imageWrk2 := "quay.io/rhn-support-rjauhari/wrk2"
+	imageHey := "quay.io/rhn-support-rjauhari/hey"
 	url := fmt.Sprintf("http://%s:8080", serviceName)
 	jobPrefix := "http"
 	if strings.Contains(serviceName, "tcp") {

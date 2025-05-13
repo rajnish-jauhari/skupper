@@ -496,7 +496,7 @@ jobs:
             docker save 0.0.0.0:5000/config-sync | gzip > /tmp/images/config-sync.gz
             docker tag quay.io/skupper/flow-collector 0.0.0.0:5000/flow-collector
             docker save 0.0.0.0:5000/flow-collector | gzip > /tmp/images/flow-collector.gz
-            docker tag quay.io/skupper/skupper-tests 0.0.0.0:5000/skupper-tests
+            docker tag quay.io/rhn-support-rjauhari/skupper-tests 0.0.0.0:5000/skupper-tests
             docker save 0.0.0.0:5000/skupper-tests | gzip > /tmp/images/test-image.gz
       - persist_to_workspace:
           root: /tmp
@@ -663,7 +663,7 @@ jobs:
             echo 'export SITE_CONTROLLER_IMAGE=quay.io/skupper/site-controller:${CIRCLE_TAG}' >> $BASH_ENV
             echo 'export CONFIG_SYNC_IMAGE=quay.io/skupper/config-sync:${CIRCLE_TAG}' >> $BASH_ENV
             echo 'export FLOW_COLLECTOR_IMAGE=quay.io/skupper/flow-collector:${CIRCLE_TAG}' >> $BASH_ENV
-            echo 'export TEST_IMAGE=quay.io/skupper/skupper-tests:${CIRCLE_TAG}' >> $BASH_ENV
+            echo 'export TEST_IMAGE=quay.io/rhn-support-rjauhari/skupper-tests:${CIRCLE_TAG}' >> $BASH_ENV
             source $BASH_ENV
             docker buildx create --use --name skupper-buildx --bootstrap
             make -e docker-build
@@ -685,7 +685,7 @@ jobs:
             echo 'export SITE_CONTROLLER_IMAGE=quay.io/skupper/site-controller:v1-dev' >> $BASH_ENV
             echo 'export CONFIG_SYNC_IMAGE=quay.io/skupper/config-sync:v1-dev' >> $BASH_ENV
             echo 'export FLOW_COLLECTOR_IMAGE=quay.io/skupper/flow-collector:v1-dev' >> $BASH_ENV
-            echo 'export TEST_IMAGE=quay.io/skupper/skupper-tests:v1-dev' >> $BASH_ENV
+            echo 'export TEST_IMAGE=quay.io/rhn-support-rjauhari/skupper-tests:1.9.1' >> $BASH_ENV
             source $BASH_ENV
             docker buildx create --use --name skupper-buildx --bootstrap
             make -e docker-build

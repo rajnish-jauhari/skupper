@@ -14,6 +14,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strconv"
+	"runtime"
 	"testing"
 	"time"
 
@@ -49,9 +50,11 @@ func TestGateway(t *testing.T) {
 // port reaching out tcp-echo-cluster service using a
 // dynamic port
 func testLocalGatewayService(t *testing.T) {
+	if runtime.GOARCH == "s390x" {
+		t.Skip("Skipping test on s390x architecture")
+	}
 	testLocalGateway(t, "")
 }
-
 func testLocalGatewayDocker(t *testing.T) {
 	testLocalGateway(t, "docker")
 }

@@ -21,12 +21,12 @@ import (
 func GetTestImage() string {
 	testImage := os.Getenv("TEST_IMAGE")
 	if testImage == "" {
-		testImage = "quay.io/skupper/skupper-tests:v1-dev"
+		testImage = "quay.io/rhn-support-rjauhari/skupper-tests:1.9.1"
 	}
 	return testImage
 }
 
-// Allows to control when Skupper test images (quay.io/skupper/skupper-tests)
+// Allows to control when Skupper test images (quay.io/rhn-support-rjauhari/skupper-tests)
 // will be pulled.  The variable is TEST_IMAGE_PULL_POLICY, and the accepted
 // values are PullIfNotPresent, PullNever and PullAlways (the default, if none
 // set).  If an invalid value is provided, it is passed as-is to K8S, which may

@@ -86,15 +86,15 @@ SKOPEO = skopeo
 # That is required for their use with Openshift 3.11
 FORMAT_OPTIONS = --format docker
 TRANSFORM_OPTIONS = --format v2s2
-PLATFORM = linux/amd64,linux/arm64
+PLATFORM = linux/amd64,linux/arm64,linux/s390x
 
 # Repositories
 MAIN_REPO = quay.io/skupper
 COPY_REPO = localhost:5000/local
 
-# Set this to copy a specific tag from quay.io/skupper/skupper-tests on
+# Set this to copy a specific tag from quay.io/rhn-support-rjauhari/skupper-tests on
 # the copy operation.  If you do so, include the colon - ":1.5"
-SKUPPER_TESTS_IMAGE_VERSION =
+SKUPPER_TESTS_IMAGE_VERSION = ":1.9.1"
 
 # This is the list of replicated images that will be copied to $(MAIN_REPO).  If
 # the image specifies a tag, make sure to escape the colon with a backslash
@@ -145,18 +145,18 @@ GENERATED_IMAGES := \
 # and placed directly on quay.  We list them here, so they can be part of the list of images
 # to be copied to a private repo
 OTHER_IMAGES := \
-	quay.io/skupper/wrk2 \
-	quay.io/skupper/tcp-go-echo \
-	quay.io/skupper/hello-world-frontend \
-	quay.io/skupper/hello-world-backend \
-	quay.io/skupper/skupper-tests${SKUPPER_TESTS_IMAGE_VERSION}
+	quay.io/rhn-support-rjauhari/wrk2 \
+	quay.io/rhn-support-rjauhari/tcp-go-echo \
+	quay.io/rhn-support-rjauhari/hello-world-frontend \
+	quay.io/rhn-support-rjauhari/hello-world-backend \
+	quay.io/rhn-support-rjauhari/skupper-tests${SKUPPER_TESTS_IMAGE_VERSION}
 
 # These images are external to the project, and they are not copied into our quay;
 # the tests access them with their original names, and we do not do any special
 # handling on them.  They are listed here just so they can be used on the copy
 # operation.
 EXTERNAL_IMAGES := \
-	quay.io/ssorj/quiver \
+	quay.io/rhn-support-rjauhari/quiver \
 	gcr.io/google-samples/microservices-demo/adservice\:v0.10.1 \
 	gcr.io/google-samples/microservices-demo/cartservice\:v0.10.1 \
 	gcr.io/google-samples/microservices-demo/checkoutservice\:v0.10.1 \
