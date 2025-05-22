@@ -8,9 +8,9 @@ TEST_IMAGE := quay.io/rhn-support-rjauhari/skupper-tests
 TEST_BINARIES_FOLDER := ${PWD}/test/integration/bin
 DOCKER := docker
 LDFLAGS := -X github.com/skupperproject/skupper/pkg/version.Version=${VERSION}
-PLATFORMS ?= linux/amd64,linux/arm64, linux/s390x
+PLATFORMS ?= linux/amd64,linux/arm64,linux/s390x
 GOOS ?= linux
-GOARCH ?= s390x
+GOARCH ?= arm64
 
 all: generate-client build-cmd build-get build-config-sync build-controllers build-tests build-manifest
 
