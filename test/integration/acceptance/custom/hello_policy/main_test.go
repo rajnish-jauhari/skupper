@@ -60,7 +60,7 @@ func (kd KubeDeploy) deploy(ctx *base.ClusterContext) (err error) {
 // Deploys the front-end side of quay.io/skupper/hello-world-*
 func deployFrontend(ctx *base.ClusterContext) (err error) {
 	err = KubeDeploy{
-		image:  "quay.io/skupper/hello-world-frontend",
+		image:  "quay.io/rhn-support-rjauhari/hello-world-frontend",
 		labels: map[string]string{"app": "hello-world-frontend"},
 		name:   "hello-world-frontend",
 	}.deploy(ctx)
@@ -71,7 +71,7 @@ func deployFrontend(ctx *base.ClusterContext) (err error) {
 // Deploys the backend-end side of quay.io/skupper/hello-world-*
 func deployBackend(ctx *base.ClusterContext) (err error) {
 	err = KubeDeploy{
-		image:  "quay.io/skupper/hello-world-backend",
+		image:  "quay.io/rhn-support-rjauhari/hello-world-backend",
 		labels: map[string]string{"app": "hello-world-backend"},
 		name:   "hello-world-backend",
 	}.deploy(ctx)
