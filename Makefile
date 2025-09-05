@@ -10,7 +10,7 @@ DOCKER := docker
 LDFLAGS := -X github.com/skupperproject/skupper/pkg/version.Version=${VERSION}
 PLATFORMS ?= linux/amd64,linux/arm64,linux/s390x
 GOOS ?= linux
-GOARCH ?= arm64
+GOARCH ?= s390x
 
 all: generate-client build-cmd build-get build-config-sync build-controllers build-tests build-manifest
 
