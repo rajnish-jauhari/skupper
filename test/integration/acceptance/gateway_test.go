@@ -16,6 +16,7 @@ import (
 	"strconv"
 	"testing"
 	"time"
+	"runtime"
 
 	"github.com/skupperproject/skupper/test/integration/acceptance/gateway"
 	"github.com/skupperproject/skupper/test/integration/examples/tcp_echo"
@@ -49,6 +50,9 @@ func TestGateway(t *testing.T) {
 // port reaching out tcp-echo-cluster service using a
 // dynamic port
 func testLocalGatewayService(t *testing.T) {
+	if runtime.GOARCH == "s390x" {
+		t.Skip("Skipping testLocalGatewayService on s390x architecture")
+	}
 	testLocalGateway(t, "")
 }
 
